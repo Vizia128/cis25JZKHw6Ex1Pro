@@ -140,6 +140,7 @@ void menuHw6Ex1() {
 						init(&tempFx);
 						pt1->moveBy(*tempFx);
 						pt2->moveBy(*tempFx);
+						delete tempFx;
 						break;
 					case 3:
 						cout << "\n      Point 1 : " << *pt1
@@ -202,8 +203,12 @@ void menuHw6Ex1() {
 			}
 			break;
 		case 5:
-			cout << "\n      Point 1 : " << *pt1
-				<< "\n      Point 2 : " << *pt2;
+			if (pt1 == nullptr || pt2 == nullptr)
+				cout << "\n    No points are available!";
+			else {
+				cout << "\n      Point 1 : " << *pt1
+					<< "\n      Point 2 : " << *pt2;
+			}
 			break;
 		case 6:
 			cout << "\n  Having Fun ...";

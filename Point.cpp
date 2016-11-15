@@ -58,16 +58,22 @@ int Point::getQuadrant()const {
 void Point::moveBy(Fraction& delx, Fraction& dely) {
 	frx += delx;
 	fry += dely;
+	frx.reduce();
+	fry.reduce();
 }
 
 void Point::moveBy(Fraction& del) {
 	frx += del;
 	fry += del;
+	frx.reduce();
+	fry.reduce();
 }
 
 void Point::moveBy(int del) {
 	frx.update(del);
 	fry.update(del);
+	frx.reduce();
+	fry.reduce();
 }
 
 

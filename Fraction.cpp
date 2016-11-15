@@ -1,10 +1,7 @@
 #include <iostream>
 #include <ostream>
-#include "Menu.h"
 #include "Fraction.h"
 #include "FractionUtility.h"
-#include "Point.h"
-#include "PointUtility.h"
 using namespace std;
 
 
@@ -37,7 +34,7 @@ int Fraction::getDenom()const {
 
 void Fraction::update(int del) {
 	num += denom * del;
-	//reduce();
+	reduce();
 }
 
 
@@ -189,7 +186,13 @@ Fraction Fraction::operator/(const int f) {
 
 
 
-
+std::ostream& operator<<(std::ostream &out, const Fraction &F) {
+	if (F.denom != 1)
+		out << F.num << "/" << F.denom;
+	else
+		out << F.num;
+	return out;
+}
 
 void print(const Fraction& lf, const Fraction& rf, const Fraction& result) {
 	cout << "\n      (" << lf.num << "/" << lf.denom << ", "

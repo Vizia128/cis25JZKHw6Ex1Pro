@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Menu.h"
 #include "Fraction.h"
 #include "FractionUtility.h"
@@ -7,52 +8,53 @@ using namespace std;
 
 
 
-void initPoint(Point** pt1, Point** pt2) {
+void init(Point** pt1, Point** pt2) {
 	Fraction *frxPtr = nullptr;
 	Fraction *fryPtr = nullptr;
 
 	cout << "\nEnter coordinates of Point 1"
-		<< "\n    X-coordinate : ";
-	initFraction(&frxPtr);
-	cout << "\n    Y-coordinate : ";
-	initFraction(&fryPtr);
+		<< "\n  X-coordinate - ";
+	init(&frxPtr);
+	cout << "\n    Y-coordinate - ";
+	init(&fryPtr);
 	*pt1 = new Point(*frxPtr, *fryPtr);
 	delete frxPtr;
 	delete fryPtr;
 
 	cout << "\nEnter coordinates of Point 2"
-		<< "\n    X-coordinate : ";
-	initFraction(&frxPtr);
-	cout << "\n    Y-coordinate : ";
-	initFraction(&fryPtr);
-	*pt1 = new Point(*frxPtr, *fryPtr);
+		<< "\n  X-coordinate -- ";
+	init(&frxPtr);
+	cout << "\n  Y-coordinate -- ";
+	init(&fryPtr);
+	*pt2 = new Point(*frxPtr, *fryPtr);
 	delete frxPtr;
 	delete fryPtr;
 }
 
-void initPoint(Point** pt, int pnum) {
+void init(Point** pt, int pnum) {
 	Fraction *frxPtr = nullptr;
 	Fraction *fryPtr = nullptr;
 
 	cout << "\nEnter coordinates of Point " << pnum
-		<< "\n    X-coordinate : ";
-	initFraction(&frxPtr);
-	cout << "\n    Y-coordinate : ";
-	initFraction(&fryPtr);
+		<< "\n  X-coordinate -- ";
+	init(&frxPtr);
+	cout << "\n  Y-coordinate -- ";
+	init(&fryPtr);
 	*pt = new Point(*frxPtr, *fryPtr);
 	delete frxPtr;
 	delete fryPtr;
 }
 
-void initPoint(Point** pt) {
+void init(Point** pt) {
 	Fraction *frxPtr = nullptr;
 	Fraction *fryPtr = nullptr;
 
-	cout << "\n    X-coordinate : ";
-	initFraction(&frxPtr);
-	cout << "\n    Y-coordinate : ";
-	initFraction(&fryPtr);
+	cout << "\n  X-coordinate -- ";
+	init(&frxPtr);
+	cout << "\n  Y-coordinate -- ";
+	init(&fryPtr);
 	*pt = new Point(*frxPtr, *fryPtr);
 	delete frxPtr;
 	delete fryPtr;
 }
+

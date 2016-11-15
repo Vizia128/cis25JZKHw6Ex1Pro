@@ -1,9 +1,10 @@
-#include "Menu.h"
-#include "Fraction.h"
-#include "FractionUtility.h"
-#include "Point.h"
+#ifndef POINTUTILITY_H
+#define POINTUTILITY_H
+#include <iostream>
 using namespace std;
 
-void initPoint(Point**, Point**);
-void initPoint(Point**,int);
-void initPoint(Point**);
+void init(Point**, Point**);
+void init(Point**,int);
+void init(Point**);
+
+#endif

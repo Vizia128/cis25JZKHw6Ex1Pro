@@ -59,13 +59,7 @@ private:
 
 };
 
-std::ostream& operator<<(std::ostream &out, const Fraction &F) {
-	if (F.denom != 1)
-		out << F.num << "/" << F.denom;
-	else
-		out << F.num;
-	return out;
-}
+
 
 //std::ostream& operator>>(std::ostream &in, const Fraction &F) {
 //	cout << "\n  Enter the numerator : ";

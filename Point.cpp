@@ -1,4 +1,3 @@
-#include "Menu.h"
 #include "Fraction.h"
 #include "FractionUtility.h"
 #include "Point.h"
@@ -27,21 +26,6 @@ Point::~Point() {
 }
 
 
-
-int Point::getQuadrant() {
-	if (frx.getNum() > 0 && fry.getNum() > 0)
-		return 1;
-	else if (frx.getNum() < 0 && fry.getNum() > 0)
-		return 2;
-	else if (frx.getNum() < 0 && fry.getNum() < 0)
-		return 3;
-	else if (frx.getNum() > 0 && fry.getNum() < 0)
-		return 4;
-	else
-		return 0;
-}
-
-
 int Point::getQuadrant(const Point& p) {
 	if (p.frx.getNum() > 0 && p.fry.getNum() > 0)
 		return 1;
@@ -56,12 +40,30 @@ int Point::getQuadrant(const Point& p) {
 }
 
 
-void Point::moveBy(Fraction delx, Fraction dely) {
+int Point::getQuadrant()const {
+	if (frx.getNum() > 0 && fry.getNum() > 0)
+		return 1;
+	else if (frx.getNum() < 0 && fry.getNum() > 0)
+		return 2;
+	else if (frx.getNum() < 0 && fry.getNum() < 0)
+		return 3;
+	else if (frx.getNum() > 0 && fry.getNum() < 0)
+		return 4;
+	else
+		return 0;
+}
+
+
+
+void Point::moveBy(Fraction& delx, Fraction& dely) {
 	frx += delx;
 	fry += dely;
 }
 
-
+void Point::moveBy(Fraction& del) {
+	frx += del;
+	fry += del;
+}
 
 void Point::moveBy(int del) {
 	frx.update(del);
@@ -74,15 +76,16 @@ void Point::moveBy(int del) {
 void Point::flipByXaxis() {
 	fry *= -1;
 }
-void Point::FlipByYaxis() {
+void Point::flipByYaxis() {
 	frx *= -1;
 }
-void Point::FlipThroughOrigin() {
+void Point::flipThroughOrigin() {
 	frx *= -1;
 	fry *= -1;
 }
-void Point::print() {
 
+void Point::print() {
+	cout << "(" << frx << "," << fry << ")";
 }
 
 
@@ -92,14 +95,12 @@ Point Point::operator=(const Point& p) {
 	return p;
 }
 
-
 Point Point::operator+(const Point& p) {
 	return (frx.getNum() * p.frx.getDenom() + frx.getDenom() * p.frx.getNum(),
 		frx.getDenom() * p.frx.getDenom(),
 		fry.getNum() * p.fry.getDenom() + fry.getDenom() * p.fry.getNum(),
 		fry.getDenom() * p.fry.getDenom());
 }
-
 
 Point Point::operator-(const Point& p) {
 	return (frx.getNum() * p.frx.getDenom() - frx.getDenom() * p.frx.getNum(),
@@ -108,12 +109,10 @@ Point Point::operator-(const Point& p) {
 		fry.getDenom() * p.fry.getDenom());
 }
 
-
 Point Point::operator*(const Point& p) {
 	return (frx.getNum() * p.frx.getNum(), frx.getDenom() * p.frx.getDenom(),
 		fry.getNum() * p.fry.getNum(), fry.getDenom() * p.fry.getDenom());
 }
-
 
 Point Point::operator/(const Point& p) {
 	return (frx.getNum() * p.frx.getDenom(), frx.getDenom() * p.frx.getNum(),
@@ -121,5 +120,7 @@ Point Point::operator/(const Point& p) {
 }
 
 
-
-
+std::ostream& operator<<(std::ostream &out, const Point &P) {
+	out << "(" << P.frx << "," << P.fry << ")";
+	return out;
+}

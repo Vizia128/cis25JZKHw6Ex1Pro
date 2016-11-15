@@ -1,8 +1,6 @@
 #ifndef POINT_H
 #define POINT_H
 #include <iostream>
-#include "fraction.h"
-#include "FractionUtility.h"
 using namespace std;
 
 
@@ -18,14 +16,16 @@ public:
 	Point(const Fraction&, const Fraction&);
 	Point(const Point&);
 	~Point();
+	
 
-	int getQuadrant();
-	int getQuadrant(const Point&);
-	void moveBy(Fraction, Fraction);
+	static int getQuadrant(const Point&);
+	int getQuadrant()const;
+	void moveBy(Fraction&, Fraction&);
+	void moveBy(Fraction&);
 	void moveBy(int);
 	void flipByXaxis();
-	void FlipByYaxis();
-	void FlipThroughOrigin();
+	void flipByYaxis();
+	void flipThroughOrigin();
 	void print();
 
 
@@ -35,7 +35,7 @@ public:
 	Point operator*(const Point&);
 	Point operator/(const Point&);
 
-	friend std::ostream& operator<<(std::ostream &out, const Point &P);
+	friend std::ostream& operator<<(std::ostream &out, const Point&);
 //	friend std::ostream& operator>>(std::ostream &in, const Point &P);
 
 
@@ -45,10 +45,7 @@ private:
 	Fraction fry;
 };
 
-std::ostream& operator<<(std::ostream &out, const Point &P) {
-	out << "(" << P.frx << "," << P.fry << ")";
-	return out;
-}
+
 
 //std::ostream& operator>>(std::ostream &in, const Point &P) {
 //	cout << "\n    X-coordinate : ";
@@ -58,11 +55,5 @@ std::ostream& operator<<(std::ostream &out, const Point &P) {
 
 
 #endif
-
-
-
-
-
-
 
 

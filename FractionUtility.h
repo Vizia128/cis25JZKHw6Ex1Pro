@@ -1,9 +1,9 @@
 #ifndef FRACTIONUTILITY_H
 #define FRACTIONUTILITY_H
-#include "fraction.h"
+using namespace std;
 
-void initFraction(Fraction**, Fraction**);
-void initFraction(Fraction**);
+void init(Fraction**, Fraction**);
+void init(Fraction**);
 int GreatestCommonDivisor(int, int);
 #endif
 

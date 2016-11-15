@@ -5,16 +5,10 @@
 using namespace std;
 
 
-
-
-
-
 Fraction::Fraction() : num(0), denom(1) {}
 Fraction::Fraction(int n) : num(n), denom(1) {}
-Fraction::Fraction(int n, int d) : num(n), denom(d) {}
+Fraction::Fraction(int n, int d) : num(d < 0? -n : n), denom(d < 0? -d : d) {}
 Fraction::Fraction(const Fraction& ref) : num(ref.num), denom(ref.denom) {}
-
-
 
 
 void Fraction::print()const {

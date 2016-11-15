@@ -1,23 +1,10 @@
 #ifndef FRACTION_H
 #define FRACTION_H
+#include <iostream>
 using namespace std;
-
-
-
-
-
-
-
 
 class Fraction {
 public:
-
-
-
-
-
-
-
 
 	Fraction();
 	Fraction(int);
@@ -29,9 +16,6 @@ public:
 	~Fraction();
 	int getNum()const;
 	int getDenom()const;
-
-
-
 
 	void update(int);
 	void reduce();
@@ -54,12 +38,10 @@ public:
 	Fraction operator*(const Fraction&);
 	Fraction operator/(const Fraction&);
 
-
 	Fraction operator+=(const Fraction&);
 	Fraction operator-=(const Fraction&);
 	Fraction operator*=(const Fraction&);
 	Fraction operator/=(const Fraction&);
-
 
 	Fraction operator=(const int);
 	Fraction operator+(const int);
@@ -67,20 +49,31 @@ public:
 	Fraction operator*(const int);
 	Fraction operator/(const int);
 
-
-
-
-//	friend ostream &operator<<(ostream &out, const Fraction &F);
+	friend std::ostream& operator<<(std::ostream &out, const Fraction &F);
+//	friend std::ostream& operator>>(std::ostream &in, const Fraction &F);
 	friend void print(const Fraction&, const Fraction&, const Fraction&);
-
-
-
 
 private:
 	int num;
 	int denom;
+
 };
 
+std::ostream& operator<<(std::ostream &out, const Fraction &F) {
+	if (F.denom != 1)
+		out << F.num << "/" << F.denom;
+	else
+		out << F.num;
+	return out;
+}
+
+//std::ostream& operator>>(std::ostream &in, const Fraction &F) {
+//	cout << "\n  Enter the numerator : ";
+//	in >> F.num;
+//	cout << "\n  Enter the denominator : ";
+//	in >> F.denom;
+//	return in;
+//}
 
 #endif
 

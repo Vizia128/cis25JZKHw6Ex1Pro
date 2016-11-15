@@ -2,8 +2,8 @@
 #define FRACTIONUTILITY_H
 #include "fraction.h"
 
-void init(Fraction**, Fraction**);
-void init(Fraction**);
+void initFraction(Fraction**, Fraction**);
+void initFraction(Fraction**);
 int GreatestCommonDivisor(int, int);
 #endif
 

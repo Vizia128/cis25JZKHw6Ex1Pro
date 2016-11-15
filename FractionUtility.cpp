@@ -6,7 +6,7 @@
 #include "PointUtility.h"
 using namespace std;
 
-void init(Fraction** lPtr, Fraction** rPtr) {
+void initFraction(Fraction** lPtr, Fraction** rPtr) {
 	int n;
 	int d;
 
@@ -35,7 +35,7 @@ void init(Fraction** lPtr, Fraction** rPtr) {
 }
 
 
-void init(Fraction** fPtr) {
+void initFraction(Fraction** fPtr) {
 	int n;
 	int d;
 

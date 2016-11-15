@@ -10,15 +10,21 @@ using namespace std;
 
 Point::Point() : frx(), fry() {
 }
-Point::Point(int nx) : frx(nx, 1), fry(nx, 1) {
+Point::Point(int nx) : frx(nx), fry(nx) {
 }
 Point::Point(int nx, int dx) : frx(nx, dx), fry(nx, dx) {
 }
 Point::Point(int nx, int dx, int ny, int dy) : frx(nx, dx), fry(ny, dy) {
 }
+Point::Point(const Fraction& f) : frx(f), fry(f){
+}
+Point::Point(const Fraction& fx, const Fraction& fy) : frx(fx), fry(fy) {
+}
 Point::Point(const Point& ref) : frx(ref.frx), fry(ref.fry) {
 }
-
+Point::~Point() {
+	cout << "\nCaling ~Point";
+}
 
 
 
@@ -57,7 +63,6 @@ void Point::moveBy(Fraction delx, Fraction dely) {
 
 
 
-
 void Point::moveBy(int del) {
 	frx.update(del);
 	fry.update(del);
@@ -66,13 +71,18 @@ void Point::moveBy(int del) {
 
 
 
-void flipByXaxis() {
+void Point::flipByXaxis() {
+	fry *= -1;
 }
-void FlipByYaxis() {
+void Point::FlipByYaxis() {
+	frx *= -1;
 }
-void FlipThroughOrigin() {
+void Point::FlipThroughOrigin() {
+	frx *= -1;
+	fry *= -1;
 }
-void print() {
+void Point::print() {
+
 }
 
 

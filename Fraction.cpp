@@ -33,7 +33,7 @@ void Fraction::update(int del) {
 
 
 void Fraction::reduce() {
-	cout << "\nA call to reduce(Fraction) was made to reduce the Fraction!\n";
+//	cout << "\nA call to reduce(Fraction) was made to reduce the Fraction!\n";
 	int GCD = -1;
 	int tempNum = num < 0 ? -num : num;
 	GCD = GreatestCommonDivisor(tempNum, denom);
@@ -90,7 +90,7 @@ Fraction divide(const Fraction& f1, const Fraction& f2) {
 
 
 Fraction::~Fraction() {
-	cout << "\n Calling ~Fraction()";
+//	cout << "\n Calling ~Fraction()";
 }
 
 
@@ -103,24 +103,24 @@ Fraction Fraction::operator=(const Fraction& f) {
 }
 
 Fraction Fraction::operator+(const Fraction& f) {
-	cout << "\nA call to add(Fraction) was made to add the Fractions!\n";
+//	cout << "\nA call to add(Fraction) was made to add the Fractions!\n";
 	return Fraction(num * f.denom + denom * f.num,
 		denom * f.denom);
 }
 
 Fraction Fraction::operator-(const Fraction& f) {
-	cout << "\nA call to subtract(Fraction) was made to subtract the Fractions!\n";
+//	cout << "\nA call to subtract(Fraction) was made to subtract the Fractions!\n";
 	return Fraction(num * f.denom - denom * f.num,
 		denom * f.denom);
 }
 
 Fraction Fraction::operator*(const Fraction& f) {
-	cout << "\nA call to multiply(Fraction) was made to multiply the Fractions!\n";
+//	cout << "\nA call to multiply(Fraction) was made to multiply the Fractions!\n";
 	return Fraction(num * f.num, denom * f.denom);
 }
 
 Fraction Fraction::operator/(const Fraction& f) {
-	cout << "\nA call to divide(Fraction) was made to divide the Fractions!\n";
+//	cout << "\nA call to divide(Fraction) was made to divide the Fractions!\n";
 	return Fraction(num * f.denom, denom * f.num);
 }
 

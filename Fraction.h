@@ -61,6 +61,7 @@ private:
 
 
 
+
 //std::ostream& operator>>(std::ostream &in, const Fraction &F) {
 //	cout << "\n  Enter the numerator : ";
 //	in >> F.num;

@@ -2,6 +2,6 @@
 #define MENU_H
 using namespace std;
 
-void menuHw6Ex1();
+void menuHw7Ex1();
 
 #endif

@@ -5,6 +5,7 @@ using namespace std;
 
 //add class retange and shape for inheritance
 //add computer area and compute perimiter
+//class shape has virtual function compute area and compute perimiter
 class Circle : public Shape{
 public:
 	Circle();

@@ -2,7 +2,10 @@
 #define CIRCLE_H
 using namespace std;
 
-class Circle{
+
+//add class retange and shape for inheritance
+//add computer area and compute perimiter
+class Circle : public Shape{
 public:
 	Circle();
 	Circle(int, int, int);
@@ -11,6 +14,8 @@ public:
 	Circle(const Circle&);
 
 	void moveBy();
+
+
 	
 	Point getLocation()const;
 	Fraction getRadius()const;

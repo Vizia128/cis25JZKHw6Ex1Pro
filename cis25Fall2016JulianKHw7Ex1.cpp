@@ -69,3 +69,61 @@ int main() {
 	return 0; 
 }
 
+
+#include <iostream>
+using namespace std;
+
+
+template <typename T>
+struct NodeT {
+	T data;
+	struct NodeT<T>* next;
+};
+
+template <typename T>
+class ListT {
+public:
+	ListT() head : (nullptr){
+	}
+
+	void insertFirst(T value){
+		NodeT<T>* tmpPtr = head;
+		head = new NodeT<T>;
+		
+		head->data = value;
+		head->next = tmpPtr;
+	}
+
+	void removeFirst() {
+		NodeT<T>* tmpPtr = head;
+
+		if (head != nullptr)
+			head = head->next;
+		return tmpPtr;
+	}
+
+	T getValueAt(T nodeNumber) {
+		IntNode* tmpPtr = head;
+
+		for (int i = 1; i < nodeNumber; i++) {
+			tmpPtr = tmpPtr->next;
+		}
+		return tmpPtr->data;
+	}
+
+
+private:
+	NodeT<T>* head;
+};
+
+struct IntNode {
+	int data;
+	struct IntNode* next;
+};
+
+
+
+int main() {
+
+	const int i;
+
